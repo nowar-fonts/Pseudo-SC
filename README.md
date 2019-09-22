@@ -1,63 +1,23 @@
-# 魔兽世界字体合并/补全工具<br>(Warcraft Font Merger, aka “WFM”)
+# 台服伪简体工具包 (Pseudo-SC Toolkit)
 
 ## 下载地址
 
-下载[最新版](https://github.com/CyanoHao/Warcraft-Font-Merger/releases/latest)的字体合并补全工具并解压缩。
+下载[最新版](https://github.com/nowar-fonts/Pseudo-SC/releases)工具包。
 
-字体合并补全工具 Windows 和 macOS 各有 5 个版本，各个版本的自带字库不同。
-* `WarFontMerger-SC1-版本号.7z`：简体中文压缩字库（覆盖 GB18030，字体文件采用压缩技术，体积小但字形质量一般）。
-* `WarFontMerger-SC2-版本号.7z`：简体中文标准字库（覆盖 GB18030，字形质量较好，**推荐**）。
-* `WarFontMerger-SC3-版本号.7z`：简体中文大字库（覆盖中日韩各国字符，字形和标准字库一致，体积稍大）。
-* `WarFontMerger-TC-版本号.7z`：繁体中文大字库（覆盖中日韩各国字符，字形采用台湾标准，体积稍大）。
-* `WarFontMerger-Classic-版本号.7z`：传统字形大字库（覆盖中日韩各国字符，字形采用传统印刷体风格，体积稍大）。
+## 快速入门
 
-除了合并补全工具自带的字体库之外，[WMF 开源字体库](https://github.com/CyanoHao/WFM-Free-Font) 中的字体也经过验证可以用于该工具。
-
-## 快速入门（Windows）
-
-### 合并两个字体并补全
-
-打开字体合并补全工具文件夹，**选中**需要合并的**两个字体**，然后**拖动英文字体**到 `合并补全.bat` 上，等候片刻即可得到合并完成的字体 `out.ttf`。
-
-操作示意：
-![合并补全操作示意](image/merge.png)
-
-合并补全之后的[字体预览图](image/merge-out.png)，不论是[西文部分](image/latin.png)还是[汉字部分](image/cjk.png)都不缺字。
-
-注：
-1. 如果想要只合并两个字体不补全，**选中**需要合并的**两个字体**，然后**拖动英文字体**到 `合并.bat` 上即可。
-2. 字体补全工具默认使用 `latin.ttf`（西文）和 `cjk.ttf`（中日韩）来补全字体。上面的操作示意图中替换了这两个字体，以更好地匹配原来的字体风格。
-3. 先合并再补全，和一次性合并补全的效果不同。一次性合并补全时，优先级依次为：第一个字体、`latin.ttf`、第二个字体、`cjk.ttf`。先合并再补全时，优先级依次为：第一个字体、第二个字体、`latin.ttf`、`cjk.ttf`。
-
-### 补全缺字的字体
-
-打开字体合并补全工具文件夹，将需要补全的字体拖动到 `补全.bat` 上，等候片刻即可得到补全完成的字体 `out.ttf`。
-
-### 生成字体包
-
-打开字体合并补全工具文件夹，把准备好的字体拖动到 `打包.bat` 上，然后将生成的 `Fonts` 文件夹移动到 `World of Warcraft\_retail_\` 下面。
-
-## 快速入门（macOS）
-
-macOS 下的使用方法和 Windows 稍有不同。
-
-首先双击打开相应的 `.command` 文件，然后依次按照提示将字体文件拖动到命令窗口中，并按回车键确认。
-
-等候片刻即可得到补全完成的字体 `out.ttf`。
-
-操作示意：
-![macOS 操作示意](image/mac.png)
+1. 备份《魔兽世界》字体文件夹。
+2. 打开 “台服伪简体工具包” 文件夹，将需要处理的字体文件拖动到 `一键生成(默认).bat` 或者 `一键生成(简化聊天字体).bat` 上，如果没有错误就会生成适合《魔兽世界》使用的 `Fonts` 文件夹。
+   + 如果你使用[有爱字体家族](https://github.com/nowar-fonts)，推荐用 `ARKai_T.ttf`。别忘了先看看现成的 “[有爱黑体 伪简体](https://github.com/nowar-fonts/Nowar-Sans-Pseudo-SC)” 是否合适。
+   + `一键生成(默认).bat` 直接把原始的字体文件复制给聊天字体，不做简化。
+   + `一键生成(简化聊天字体).bat` 会简化聊天字体，可以让聊天框里的 NPC 对话、系统提示、拾取信息等也显示成简化字。但是同时也会把你输入的繁体字显示成简化字，可能导致你输入错误的字符，使得别人看起来简繁混乱。
+3. 将 `Fonts` 文件夹移动到 `Wow.exe` 所在路径（`...\World of Warcraft\_retail_\` 或 `...\World of Warcraft\_classic_\`）下，即可完成字体替换。
 
 ## 特性
 
-* 轻量级：三个可执行文件，总共只有 2 MB 多一点。自带字库的压缩包不超过 10 MB。
-* 多功能：既可以合并字体，也可以用来补全缺字的字体。
-* 速度快：中英文字体的合并补全只需要 20 秒。
-
-## 限制
-
-* 目前只支持 TrueType 曲线字体（TrueType 或 OpenType/TT，扩展名通常为 `.ttf`），暂不支持 PostScript 曲线字体（OpenType/CFF 或 OpenType/CID，扩展名通常为 `.otf`）。
-* 不提供预编译的 32 位版本。WFM 不可避免地需要操纵汉字，而汉字是一个非常庞大的集合，读取并操作汉字需要巨大的内存，32 位程序极易因为超出内存上限而崩溃。
+* 支持 TrueType 曲线字体（TrueType 或 OpenType/TT，扩展名通常为 `.ttf`）和 PostScript 曲线字体（OpenType/CFF，扩展名通常为 `.otf`）。
+* 可以（但不推荐！）处理简体版字体（GB 2312 字符集），该工具包会把能找到对应简化字的繁体字码位补全。
+  + 处理简体版字体需要使用 `一键生成(简化聊天字体).bat`，否则聊天字体会出现大量缺字问题。
 
 ## 编译和运行
 
@@ -65,65 +25,23 @@ macOS 下的使用方法和 Windows 稍有不同。
 
 用 GCC 或 Clang
 ```bash
-g++ src/merge-otd.cpp src/merge-name.cpp src/iostream.cpp -Isrc/ -std=c++17 -O2 -o merge-otd
-```
-
-或者用 Visual C++
-```cmd
-cl src\merge-otd.cpp src\merge-name.cpp src\iostream.cpp /Isrc\ /std:c++17 /EHsc /O2 /Fe:merge-otd.exe
+g++ src/pseudo-sc.cpp src/iostream.cpp -Isrc/ -std=c++2a -O2 -o pseudo-sc
 ```
 
 ### 运行（需要 [otfcc](https://github.com/caryll/otfcc)）
 
-合并两个字体：
 ```bash
-otfccdump 西文字体.ttf -o base.otd
-otfccdump 中文字体.ttf -o cjk.otd
-./merge-otd base.otd cjk.otd
-otfccbuild base.otd -O2 -o 合并之后的字体.ttf
-rm *.otd
+otfccdump 待处理的字体.ttf -o base.otd
+./pseudo-sc base.otd
+otfccbuild base.otd -O2 -o 生成的字体.ttf
 ```
 
-补全缺字的字体：
-```bash
-otfccdump 需要补全的字体.ttf -o base.otd
-otfccdump 收字很全的西文字体.ttf -o latin.otd
-otfccdump 收字很全的中文字体.ttf -o cjk.otd
-./merge-otd base.otd latin.otd cjk.otd
-otfccbuild base.otd -O2 -o 补全之后的字体.ttf
-rm *.otd
-```
-
-合并字体文件的数量原则上只受底层限制（命令行参数、内存、OpenType 字符数量等）：
-```bash
-otfccdump 基本拉丁字母.ttf -o base.otd
-otfccdump 扩展拉丁字母.ttf -o 1.otd
-otfccdump 希腊字母.ttf     -o 2.otd
-otfccdump 西里尔字母.ttf   -o 3.otd
-otfccdump 假名.ttf         -o 4.otd
-otfccdump 基本汉字.ttf     -o 5.otd
-otfccdump 扩展汉字.ttf     -o 6.otd
-otfccdump 谚文.ttf         -o 7.otd
-otfccdump 其他CJK符号.ttf  -o 8.otd
-./merge-otd base.otd 1.otd 2.otd 3.otd 4.otd 5.otd 6.otd 7.otd 8.otd
-otfccbuild base.otd -O2 -o 合并之后的字体.ttf
-rm *.otd
-```
-
-## 开发计划
-
-### 支持对每个字体自定义变换矩阵
-
-这样可以更好地匹配原有字体的风格。例如，修改倾斜角度、压缩字符宽度，甚至旋转字符。
-
-### 支持 PostScript 曲线字体
-
-许多高质量的字体采用了 PostScript 曲线，封装为 OpenType/CFF 或 OpenType/CID 字体。由于 OpenType/CFF 或 OpenType/CID 的字体格式与 OpenType/TT 差别很大，目前还没办法支持。
+然后按照《魔兽世界》客户端的字体文件命名规则进行复制和重命名即可。
 
 ## 感谢
 
 [Belleve Invis](https://github.com/be5invis) 和[李阿玲](https://github.com/clerkma)编写的 [otfcc](https://github.com/caryll/otfcc) 用于解析和生成 OpenType 字体文件。
 
-[Niels Lohmann](https://github.com/nlohmann) 的 [json](https://github.com/nlohmann/json) 库提供了非常漂亮的 C++ JSON 接口。本工具使用了修改版的 `json.hpp`，容许非标准编码的字符。
+[Niels Lohmann](https://github.com/nlohmann) 的 [json](https://github.com/nlohmann/json) 库提供了非常漂亮的 C++ JSON 接口。本工具使用了修改版的 JSON 库，容许非标准编码的字符。
 
-Google 提供了大量的开源字体，Adobe 提供了高质量的[思源黑体](https://github.com/adobe-fonts/source-han-sans)。
+“繁—简” 转换规则来自[郭家寶](https://github.com/BYVoid)的 [Open Chinese Convert](https://github.com/BYVoid/OpenCC) 项目。

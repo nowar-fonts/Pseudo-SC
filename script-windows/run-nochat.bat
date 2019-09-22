@@ -14,7 +14,6 @@ copy Fonts\ARIALN.ttf Fonts\bKAI00M.ttf
 copy Fonts\ARIALN.ttf Fonts\blei00d.ttf
 copy Fonts\ARIALN.ttf Fonts\FRIZQT__.ttf
 
-rem leave chat font as-is
 copy "%~1" Fonts\arheiuhk_bd.ttf
 copy "%~1" Fonts\bHEI01B.ttf
 
